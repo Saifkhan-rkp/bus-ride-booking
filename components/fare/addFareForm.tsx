@@ -99,7 +99,7 @@ export default function AddFarePage() {
   return (
     <FormProvider {...methods}>
       <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-4">Add Fare</h1>
+        <h1 className="mb-4 text-3xl font-bold">Add Fare</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Route Dropdown */}
@@ -117,7 +117,7 @@ export default function AddFarePage() {
                 <select
                   id="route"
                   {...field}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
                 >
                   <option value="">Select Route</option>
                   {routes.map((route) => (
@@ -150,7 +150,7 @@ export default function AddFarePage() {
                 <select
                   {...field}
                   id="fromLocation"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
                   required
                 >
                   <option value="">Select From Location</option>
@@ -182,7 +182,7 @@ export default function AddFarePage() {
                 <select
                   {...field}
                   id="toLocation"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
                   required
                 >
                   <option value="">Select To Location</option>
@@ -215,7 +215,7 @@ export default function AddFarePage() {
                   {...field}
                   type="number"
                   id="price"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
                   required
                 />
               )}
@@ -230,14 +230,14 @@ export default function AddFarePage() {
             <button
               type="button"
               onClick={() => router.push("/fare")}
-              className="px-4 py-2 bg-gray-300 text-black rounded-md"
+              className="rounded-md bg-gray-300 px-4 py-2 text-black"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md"
+              className="rounded-md bg-blue-600 px-4 py-2 text-white"
             >
               Submit
             </button>

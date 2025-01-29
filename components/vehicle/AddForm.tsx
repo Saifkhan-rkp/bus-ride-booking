@@ -53,7 +53,7 @@ export default function VehicleForm() {
   
 
   return (
-    <div className="mx-auto mt-8 w-full md:w-1/2 rounded-md bg-white p-6 shadow-md">
+    <div className="mx-auto mt-8 w-full rounded-md bg-white p-6 shadow-md md:w-1/2">
       <h2 className="mb-4 text-lg font-semibold">Add New Vehicle</h2>
 
       {error && <p className="text-red-500">{error}</p>}

@@ -85,8 +85,8 @@ const BookingConfirm: React.FC<BookingConfirmProps> = ({
             <div className="container p-8">
                 {/* Number of Passengers and Date Selection */}
                 <div className="flex items-center justify-center gap-20">
-                    <div className="w-[30%] bg-white p-6 rounded-lg shadow-lg border border-gray-200 mb-8">
-                        <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                    <div className="mb-8 w-[30%] rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
+                        <h3 className="mb-2 text-xl font-semibold text-gray-700">
                             Number of Passengers
                         </h3>
                         <input
@@ -94,27 +94,27 @@ const BookingConfirm: React.FC<BookingConfirmProps> = ({
                             value={1}
                             onChange={handlePassengerChange}
                             min="1"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
-                    <div className="w-[30%] bg-white p-6 rounded-lg shadow-lg border border-gray-200 mb-8">
-                        <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                    <div className="mb-8 w-[30%] rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
+                        <h3 className="mb-2 text-xl font-semibold text-gray-700">
                             Select Date
                         </h3>
                         <input
                             type="date"
                             value={selectedDate}
                             onChange={handleDateChange}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
                 </div>
                 {/* Seat Selection */}
                 <div className="mb-8 flex flex-col items-center justify-center">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                    <h3 className="mb-4 text-lg font-semibold text-gray-800">
                         Select Your Seat
                     </h3>
-                    <div className="w-fit grid grid-cols-4 gap-2 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                    <div className="grid w-fit grid-cols-4 gap-2 rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
                         {Array.from({ length: 20 }, (_, index) => {
                             const seatNumber = index + 1;
                             return (
@@ -124,7 +124,7 @@ const BookingConfirm: React.FC<BookingConfirmProps> = ({
                                     // style={{
                                     //     marginRight: (index % 4 === 1) ? '16px' : '0', // Extra gap after the 2nd column
                                     // }}
-                                    className={`w-12 h-12 flex items-center justify-center rounded-lg cursor-pointer ${seatNo === seatNumber
+                                    className={`flex size-12 cursor-pointer items-center justify-center rounded-lg ${seatNo === seatNumber
                                         ? "bg-blue-500 text-white"
                                         : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                                         }`}
@@ -140,9 +140,9 @@ const BookingConfirm: React.FC<BookingConfirmProps> = ({
 
 
                 {/* Payment Button*/}
-                <div className="flex justify-center items-center">
+                <div className="flex items-center justify-center">
                     <button
-                        className=" bg-zinc-800 text-white py-3 px-6 rounded-lg hover:bg-zinc-700 transition duration-200"
+                        className=" rounded-lg bg-zinc-800 px-6 py-3 text-white transition duration-200 hover:bg-zinc-700"
                         onClick={handleBook}
                     >
                         Proceed to pay ₹{fare}/-

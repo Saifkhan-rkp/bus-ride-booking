@@ -17,16 +17,16 @@ const TicketsPage = async () => {
                     return (
                         <div>
                             <div>
-                                <div className="bg-white py-10 px-20 rounded-lg shadow-lg mb-6 border border-gray-200">
+                                <div className="mb-6 rounded-lg border border-gray-200 bg-white px-20 py-10 shadow-lg">
                                     <div className="flex justify-between">
-                                        <h3 className="text-2xl font-semibold text-gray-800 mb-4 uppercase">
+                                        <h3 className="mb-4 text-2xl font-semibold uppercase text-gray-800">
                                             {ticket.user.name}
                                         </h3>
-                                        <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                                        <h3 className="mb-4 text-xl font-semibold text-gray-800">
                                             {ticket.route.vehicle.name}
                                         </h3>
                                     </div>
-                                    <div className="flex items-start justify-center gap-10 py-8 border-t">
+                                    <div className="flex items-start justify-center gap-10 border-t py-8">
                                         <div>
                                             <p className="text-zinc-600">From:</p>
                                             <h2 className="text-2xl font-bold text-zinc-800">{ticket.route.origin.name}</h2>

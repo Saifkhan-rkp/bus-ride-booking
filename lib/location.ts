@@ -34,6 +34,20 @@ export const getAllLocations = async ({ page = 1, limit = 10 }: { page: number, 
 }
 
 // -----------------------------------------------------------------------------
+// To Get All Locations - Function
+// -----------------------------------------------------------------------------
+export const getAllLocationsWithoutPagination = async () => {
+    try {
+        const total = await prisma.location.count();
+        const locations = await prisma.location.findMany();
+
+        return {locations, total};
+    } catch {
+        return { locations: [], total: 0 };
+    }
+}
+
+// -----------------------------------------------------------------------------
 // To Add Location - Function
 // -----------------------------------------------------------------------------
 export const addLocation = async (data: any) => {

@@ -25,7 +25,7 @@ export default async function AdminPage() {
   } catch (error) {
     console.error("Error loading add vehicle form:", error);
     return (
-      <div className="text-red-500 text-center">
+      <div className="text-center text-red-500">
         Failed to load form. Please try again later.
       </div>
     );

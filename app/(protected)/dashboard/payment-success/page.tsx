@@ -4,12 +4,12 @@ export default function PaymentSuccess({
     searchParams: { amount: string };
 }) {
     return (
-        <main className="max-w-6xl mx-auto p-10 text-white text-center ">
+        <main className="mx-auto max-w-6xl p-10 text-center text-white ">
             <div className="mb-10">
-                <h1 className="text-4xl font-extrabold mb-2">Thank you!</h1>
+                <h1 className="mb-2 text-4xl font-extrabold">Thank you!</h1>
                 <h2 className="text-2xl">You successfully sent</h2>
 
-                <div className="bg-white p-2 rounded-md text-purple-500 mt-5 text-4xl font-bold">
+                <div className="mt-5 rounded-md bg-white p-2 text-4xl font-bold text-purple-500">
                     ${amount}
                 </div>
             </div>

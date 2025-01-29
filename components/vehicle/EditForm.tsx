@@ -53,7 +53,7 @@ export default function VehicleForm({ vehicle }: { vehicle: any }) {
   };
 
   return (
-    <div className="mx-auto mt-8 w-full md:w-1/2 rounded-md bg-white p-6 shadow-md">
+    <div className="mx-auto mt-8 w-full rounded-md bg-white p-6 shadow-md md:w-1/2">
       <h2 className="mb-4 text-lg font-semibold">Edit Vehicle</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">

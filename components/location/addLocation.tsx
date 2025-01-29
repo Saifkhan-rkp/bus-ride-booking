@@ -52,7 +52,7 @@ export default function AddLocationPage() {
   return (
     <FormProvider {...methods}>
       <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-4">Add Location</h1>
+        <h1 className="mb-4 text-3xl font-bold">Add Location</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Name Input */}
@@ -72,7 +72,7 @@ export default function AddLocationPage() {
                   {...field}
                   type="text"  // Corrected to 'text' for the HTML input type
                   id="name"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
                 />
               )}
             />
@@ -86,14 +86,14 @@ export default function AddLocationPage() {
             <button
               type="button"
               onClick={() => router.push("/location")}
-              className="px-4 py-2 bg-gray-300 text-black rounded-md"
+              className="rounded-md bg-gray-300 px-4 py-2 text-black"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md"
+              className="rounded-md bg-blue-600 px-4 py-2 text-white"
             >
               Submit
             </button>

@@ -6,18 +6,18 @@ export default function PaymentSuccess({
 }) {
     return (
         <form action={handlePayment} method="post" className="p-10">
-        <h1 className="text-2xl font-bold mb-4">Enter Payment Amount</h1>
+        <h1 className="mb-4 text-2xl font-bold">Enter Payment Amount</h1>
         <input
           type="number"
           name="amount"
           placeholder="Enter amount"
-          className="border p-2 rounded-md w-full mb-4"
+          className="mb-4 w-full rounded-md border p-2"
           required
           min="1"
         />
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded-md"
+          className="rounded-md bg-blue-600 px-4 py-2 text-white"
         >
           Proceed to Payment
         </button>

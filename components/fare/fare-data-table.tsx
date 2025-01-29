@@ -236,7 +236,7 @@ export function DataTableDemo() {
         </div>
       </div>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="bg-/50 fixed inset-0 z-50 flex items-center justify-center bg-black">
           <div className="w-96 rounded-md bg-white p-6 shadow-md">
             <h3 className="mb-4 text-lg font-semibold">
               {viewMode ? "View Fare" : editMode ? "Edit Fare" : ""}

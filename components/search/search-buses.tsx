@@ -13,12 +13,13 @@ interface Location {
 interface Bus {
     id: string;
     name: string;
-    origin: string;
-    destination: string;
+    origin: any;
+    destination: any;
     departureTime: string;
     arrivalTime: string;
     fare: number;
-    route: string;
+    route: any;
+    price: number;
 }
 
 const SearchBuses = () => {
@@ -35,11 +36,11 @@ const SearchBuses = () => {
                 const response = await fetch("/api/location", {
                     method: "GET", // Ensure GET method is specified
                 });
-                const data = await response.json();
+                const {locations=[]} = await response.json();
         
 
-                setLocations(data);
-                console.log("Locations fetched successfully:", data);
+                setLocations(locations);
+                console.log("Locations fetched successfully:", locations);
             } catch (error) {
                 console.error("Error fetching locations:", error);
             } finally {
@@ -74,10 +75,10 @@ const SearchBuses = () => {
                 throw new Error("Failed to fetch buses.");
             }
 
-            const result: Bus[] = await response.json();
+            const  {fares=[], }:{fares:Bus[]} = await response.json();
 
-            if (result.length > 0) {
-                setAvailableBuses(result); // Update state with search results
+            if (fares.length > 0) {
+                setAvailableBuses(fares); // Update state with search results
             } else {
                 setAvailableBuses([]); // Clear results if no buses are found
                 console.log("No buses found for the selected route.");
@@ -91,16 +92,16 @@ const SearchBuses = () => {
         <>
 
             <div className="flex items-center justify-center ">
-                <form method="get" className=" w-[60vw] h-[10vh] rounded-3xl flex" onSubmit={handleSearch} >
+                <form method="get" className=" flex h-[10vh] w-[60vw] rounded-3xl" onSubmit={handleSearch} >
 
                     {/* Origin Dropdown */}
-                    <div className="w-[40%] h-full rounded-3xl">
+                    <div className="h-full w-2/5 rounded-3xl">
 
                         <select
                             id="origin"
                             name="origin"
                             // defaultValue={origin || ""}
-                            className="w-full h-[100%] px-8 py-2 rounded-l-3xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-md"
+                            className="sm:text-md size-full rounded-l-3xl border-gray-300 px-8 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         >
                             <option value="" disabled>
                                 Select Origin
@@ -114,18 +115,18 @@ const SearchBuses = () => {
                     </div>
 
                     {/* Destination Dropdown */}
-                    <div className="w-[40%] h-full bg-slate-500 rounded-3xl">
+                    <div className="h-full w-2/5 rounded-3xl bg-slate-500">
 
                         <select
                             id="desination"
                             name="destination"
-                            className="w-full h-[100%] px-8 py-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-md"
+                            className="sm:text-md size-full border-gray-300 px-8 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         >
 
                             <option value="" disabled>
                                 Select Destination
                             </option>
-                            {locations.map((loc) => (
+                            {Array.isArray(locations) && locations.map((loc) => (
                                 <option key={loc.id} value={loc.id}>
                                     {loc.name}
                                 </option>
@@ -136,7 +137,7 @@ const SearchBuses = () => {
                     {/* Search Button */}
                     <button
                         type="submit"
-                        className="w-[20%] bg-zinc-900 text-lg text-white py-2 px-5 rounded-r-3xl hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2"
+                        className="w-1/5 rounded-r-3xl bg-zinc-900 px-5 py-2 text-lg text-white hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2"
                     >
                         Search
                     </button>
@@ -145,22 +146,22 @@ const SearchBuses = () => {
 
             <EmptyPlaceholder>
                 {availableBuses.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {availableBuses.map((bus) => (
                             
                             <AvailableBusCard
                                 id={bus.id}
                                 busName={bus.route.vehicle.name}
-                                startLocation={bus.route.origin.name}
-                                startTime={bus.route.departureTime}
-                                endLocation={bus.route.destination.name}
-                                endTime={bus.route.arrivalTime}
-                                vehicleNumber={bus.route.vehicle.number}
+                                startLocation={bus.route?.origin.name}
+                                startTime={bus.route?.departureTime}
+                                endLocation={bus.route?.destination.name}
+                                endTime={bus.route?.arrivalTime}
+                                vehicleNumber={bus.route?.vehicle.number}
                                 userStartLocation={bus.origin.name}
                                 userEndLocation={bus.destination.name}
                                 fare={bus.price}
-                                type={bus.route.vehicle.type}
-                                availableSeats={bus.route.vehicle.seats}
+                                type={bus.route?.vehicle.type}
+                                availableSeats={bus.route?.vehicle.seats}
                             />
                         ))}
                     </div>

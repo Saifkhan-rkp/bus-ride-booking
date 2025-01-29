@@ -21,9 +21,6 @@ import { getCurrentUser } from "@/lib/session";
 
 interface BookingPageProps {
     params: { id: string }; // Access the dynamic route parameter
-    id: string,
-    userid: string,
-    fare: string,
 }
 
 const BookingConfirmation = async ({ params }: BookingPageProps) => {

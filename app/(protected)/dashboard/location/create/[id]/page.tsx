@@ -29,7 +29,7 @@ export default async function AdminPage() {
   } catch (error) {
     console.error("Error fetching location data:", error);
     return (
-      <div className="text-red-500 text-center">
+      <div className="text-center text-red-500">
         Failed to load data. Please try again later.
       </div>
     );
