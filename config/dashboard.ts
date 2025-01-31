@@ -36,7 +36,6 @@ export const sidebarLinks: SidebarNavItem[] = [
         title: "Fare Panel",
         authorizeOnly: UserRole.ADMIN,
       },
-
       {
         href: "/location",
         icon: "mapin",

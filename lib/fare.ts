@@ -49,8 +49,16 @@ export const getAllFares = async ({ page = 1, limit = 10 }: { page: number, limi
     }
   };
 
-  export const getAllFare = async () => {
+
+export const getFaresByFilter = async ({ origin, destination }: { origin: string, destination: string }) => {
     try {
+      const total = await prisma.fare.count({
+        where: {
+            fromLocationId: origin,
+            toLocationId: destination,
+        }
+      });  // Count the total number of fares
+
       const fares = await prisma.fare.findMany({
         include: {
             route: {
@@ -63,10 +71,14 @@ export const getAllFares = async ({ page = 1, limit = 10 }: { page: number, limi
             origin: true,
             destination: true,
         },
+        where: {
+            fromLocationId: origin,
+            toLocationId: destination,
+        }
       });
-      return { fares };  // Return both fares and total
+      return { fares, total };  // Return both fares and total
     } catch {
-      return { fares: [] };
+      return { fares: [], total: 0 };
     }
   };
 

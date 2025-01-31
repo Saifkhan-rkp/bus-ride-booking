@@ -266,7 +266,8 @@ export default function VehicleList() {
       </div>
 
       {isOpen && viewMode && vehicle && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+        <div className="bg-/50 fixed inset-0 z-50 flex items-center justify-center bg-black">
+
           <div className="w-96 rounded-md bg-white p-6 shadow-md">
             <h3 className="mb-4 text-lg font-semibold">View Vehicle</h3>
             <p>

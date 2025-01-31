@@ -24,7 +24,9 @@ export default async function VehicleEditPage({
 
   // Extract vehicle ID from params
   const { id } = params;
- 
+
+//   let vehicle: { number: string; id: string; name: string; type: string; seats: number; } | null = null;
+
 
   try {
     // Fetch the vehicle details

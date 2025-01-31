@@ -122,7 +122,7 @@ const BookingConfirm: React.FC<BookingConfirmProps> = ({
                     <h3 className="mb-4 text-lg font-semibold text-gray-800">
                         Select Your Seat
                     </h3>
-                    <div className="w-fit grid grid-cols-4 gap-2 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                    <div className="grid w-fit grid-cols-4 gap-2 rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
                         {Array.from({ length: 20 }, (_, index) => {
                             const seatNumber = index + 1;
                             return (

@@ -35,7 +35,13 @@ export default async function AdminPage() {
 
     return (
       <div className="flex flex-col gap-5">
-        <TransactionsList/>
+        <TransactionsList
+          // initialData={result.data}
+          // initialTotal={result.total}
+          // pageIndex={pageIndex}
+          // pageSize={pageSize}
+        />
+
       </div>
     );
   } catch (error) {
