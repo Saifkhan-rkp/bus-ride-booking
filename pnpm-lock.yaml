@@ -242,6 +242,7 @@ importers:
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.3.0
+
         version: 19.6.1(@types/node@20.17.16)(typescript@5.5.3)
       '@commitlint/config-conventional':
         specifier: ^19.2.2
@@ -6270,6 +6271,7 @@ snapshots:
       '@commitlint/rules': 19.6.0
       '@commitlint/types': 19.5.0
 
+
   '@commitlint/load@19.6.1(@types/node@20.17.16)(typescript@5.5.3)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
@@ -8377,6 +8379,7 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
+
   '@types/node@20.17.16':
     dependencies:
       undici-types: 6.19.8
@@ -8749,6 +8752,8 @@ snapshots:
   astring@1.9.0: {}
 
   async-function@1.0.0: {}
+
+  asynckit@0.4.0: {}
 
   asynckit@0.4.0: {}
 
@@ -11476,6 +11481,9 @@ snapshots:
       '@protobufjs/utf8': 1.1.0
       '@types/node': 20.17.16
       long: 5.2.4
+
+  proxy-from-env@1.1.0: {}
+
 
   proxy-from-env@1.1.0: {}
 

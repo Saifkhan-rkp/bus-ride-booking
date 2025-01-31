@@ -21,10 +21,10 @@ const BookingConfirm: React.FC<BookingConfirmProps> = ({
     userid,
     fare,
 
-}:{
-    id:string|undefined; 
-    userid:string|undefined;
-    fare:number|undefined;
+}: {
+    id: string | undefined;
+    userid: string | undefined;
+    fare: number | undefined;
 }) => {
     const [numPassengers, setNumPassengers] = useState(1);
     const [selectedDate, setSelectedDate] = useState(
@@ -47,6 +47,7 @@ const BookingConfirm: React.FC<BookingConfirmProps> = ({
     };
 
 
+
     const handleBook = async () => {
         if (!numPassengers || !selectedDate || !seatNo) {
             alert("Please select passengers and date.");
@@ -66,12 +67,19 @@ const BookingConfirm: React.FC<BookingConfirmProps> = ({
                 }),
             });
 
+            if (response.status === 409) {
+                // Handle seat reservation conflict
+                const result = await response.json();
+                alert(result.message); // Display the conflict message
+                return;
+            }
+
             if (!response.ok) {
                 throw new Error("Booking failed.");
             }
 
             const result = await response.json();
-            console.log("Booking created:", result); 
+            console.log("Booking created:", result);
             router.push(`/dashboard/payment?amount=${fare}&booking_id=${result?.id}&`);
         } catch (error) {
             console.error("Error creating booking:", error);

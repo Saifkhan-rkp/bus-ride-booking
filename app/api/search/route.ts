@@ -1,12 +1,15 @@
+
 import { getFaresByFilter } from "@/lib/fare";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
+
     try {
         const {searchParams} = new URL(req.nextUrl); // Create a URL object
         const origin = searchParams.get("origin");
         const destination = searchParams.get("destination");
+
 
         const allFares = await getFaresByFilter({
             origin: origin || "",
@@ -14,6 +17,7 @@ export async function GET(req: NextRequest) {
         });
 
         return NextResponse.json(allFares);
+
     } catch (error) {
         if (isDynamicServerError(error)) {
             throw error;

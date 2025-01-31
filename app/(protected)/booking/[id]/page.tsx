@@ -18,12 +18,13 @@ import BookingConfirm from "@/components/booking/booking-confirm";
 import { DashboardHeader } from "@/components/dashboard/header";
 import { getFareById } from "@/lib/fare";
 import { getCurrentUser } from "@/lib/session";
+import React from "react";
 
 interface BookingPageProps {
     params: { id: string }; // Access the dynamic route parameter
 }
 
-const BookingConfirmation = async ({ params }: BookingPageProps) => {
+const BookingConfirmation: React.FC<BookingPageProps> = async ({ params }) => {
 
     const user = await getCurrentUser();
 

@@ -49,6 +49,7 @@ export const getAllFares = async ({ page = 1, limit = 10 }: { page: number, limi
     }
   };
 
+
 export const getFaresByFilter = async ({ origin, destination }: { origin: string, destination: string }) => {
     try {
       const total = await prisma.fare.count({
@@ -57,6 +58,7 @@ export const getFaresByFilter = async ({ origin, destination }: { origin: string
             toLocationId: destination,
         }
       });  // Count the total number of fares
+
       const fares = await prisma.fare.findMany({
         include: {
             route: {

@@ -6,7 +6,7 @@ import { MoveRight } from "lucide-react";
 const TicketsPage = async () => {
 
     const user = await getCurrentUser();
-    const response = await getUserTicketsById(user?.id);
+    const response = await getUserTicketsById(user?.id as string);
     const tickets = response;
 
     return (

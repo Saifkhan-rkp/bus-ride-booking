@@ -27,9 +27,19 @@ export const getAllLocations = async ({ page = 1, limit = 10 }: { page: number, 
             take: limit,
         })
 
-        return {locations, total};
+        return { locations, total };
     } catch {
         return { locations: [], total: 0 };
+    }
+}
+
+export const getAllLocation = async () => {
+    try {
+        const locations = await prisma.location.findMany()
+
+        return locations;
+    } catch {
+        return { locations: [] };
     }
 }
 
@@ -80,15 +90,15 @@ export const addLocation = async (data: any) => {
 // -----------------------------------------------------------------------------
 export async function updateLocation(id, name) {
     try {
-      const updatedLocation = await prisma.location.update({
-        where: { id },
-        data: { name },
-      });
-      return updatedLocation;
+        const updatedLocation = await prisma.location.update({
+            where: { id },
+            data: { name },
+        });
+        return updatedLocation;
     } catch (error) {
-      throw new Error("Failed to update Location ");
+        throw new Error("Failed to update Location ");
     }
-  }
+}
 
 // -----------------------------------------------------------------------------
 // To Delete Location - Function

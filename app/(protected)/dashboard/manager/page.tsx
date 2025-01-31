@@ -41,6 +41,7 @@ export default async function AdminPage() {
           // pageIndex={pageIndex}
           // pageSize={pageSize}
         />
+
       </div>
     );
   } catch (error) {

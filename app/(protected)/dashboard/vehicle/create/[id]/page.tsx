@@ -24,11 +24,13 @@ export default async function VehicleEditPage({
 
   // Extract vehicle ID from params
   const { id } = params;
-  let vehicle: { number: string; id: string; name: string; type: string; seats: number; } | null = null;
+
+//   let vehicle: { number: string; id: string; name: string; type: string; seats: number; } | null = null;
+
 
   try {
     // Fetch the vehicle details
-    vehicle = await getVehicleById(id);
+    const vehicle = await getVehicleById(id);
 
     if (!vehicle) {
       return (
@@ -37,6 +39,12 @@ export default async function VehicleEditPage({
         </div>
       );
     }
+    return (
+      <div className="flex flex-col gap-5 p-4">
+        <h1 className="text-xl font-semibold">Edit Vehicle</h1>
+        <EditVehicleForm vehicle={vehicle} />
+      </div>
+    );
   } catch (error) {
     console.error("Error fetching vehicle data:", error);
     return (
@@ -47,10 +55,4 @@ export default async function VehicleEditPage({
   }
 
   // Render the edit form
-  return (
-    <div className="flex flex-col gap-5 p-4">
-      <h1 className="text-xl font-semibold">Edit Vehicle</h1>
-      <EditVehicleForm vehicle={vehicle} />
-    </div>
-  );
 }

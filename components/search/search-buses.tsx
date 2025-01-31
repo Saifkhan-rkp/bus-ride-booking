@@ -6,8 +6,8 @@ import AvailableBusCard from "./buses-card";
 import { getAllLocations } from "@/lib/location";
 
 interface Location {
-    id: string;
-    name: string;
+    id: string | undefined;
+    name: string | undefined;
 }
 
 interface Bus {
@@ -20,6 +20,7 @@ interface Bus {
     fare: number;
     route: any;
     price: number;
+
 }
 
 const SearchBuses = () => {
@@ -41,6 +42,7 @@ const SearchBuses = () => {
 
                 setLocations(locations);
                 console.log("Locations fetched successfully:", locations);
+
             } catch (error) {
                 console.error("Error fetching locations:", error);
             } finally {
@@ -148,8 +150,9 @@ const SearchBuses = () => {
                 {availableBuses.length > 0 ? (
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {availableBuses.map((bus) => (
-                            
+
                             <AvailableBusCard
+                                key={bus.id}
                                 id={bus.id}
                                 busName={bus.route.vehicle.name}
                                 startLocation={bus.route?.origin.name}
@@ -162,7 +165,9 @@ const SearchBuses = () => {
                                 fare={bus.price}
                                 type={bus.route?.vehicle.type}
                                 availableSeats={bus.route?.vehicle.seats}
+
                             />
+
                         ))}
                     </div>
                 ) : (
@@ -176,3 +181,4 @@ const SearchBuses = () => {
 };
 
 export default SearchBuses;
+

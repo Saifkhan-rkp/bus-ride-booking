@@ -37,7 +37,7 @@ export default async function HeroLanding() {
 href="/login"
             prefetch={true}
             className={cn(
-              buttonVariants({ rounded: "xl", size: "lg" }),
+              buttonVariants({  rounded: "xl", size: "lg" }),
               "gap-2 px-5 text-[15px]",
             )}
           >

@@ -4,17 +4,17 @@ import Link from "next/link";
 
 interface AvailableBusCardProps {
     id: string
-    busName: string;
-    startLocation: string;
-    startTime: string;
-    endLocation: string;
-    endTime: string;
-    vehicleNumber: string;
-    userStartLocation: string;
-    userEndLocation: string;
-    fare: number;
-    type: string;
-    availableSeats: number;
+    busName?: string|undefined;
+    startLocation?: string|undefined;
+    startTime?: string|undefined;
+    endLocation?: string|undefined;
+    endTime?: string|undefined;
+    vehicleNumber?: string|undefined;
+    userStartLocation?: string|undefined;
+    userEndLocation?: string|undefined;
+    fare?: number|undefined;
+    type?: string|undefined;
+    availableSeats?: number|undefined;
 }
 
 const AvailableBusCard: React.FC<AvailableBusCardProps> = ({
@@ -45,12 +45,12 @@ const AvailableBusCard: React.FC<AvailableBusCardProps> = ({
                     <div>
                         <p className="font-semibold text-gray-800">Start Location</p>
                         <p className="font-semibold">{startLocation}</p>
-                        <p className="text-xs text-gray-700">{new Date(startTime).toLocaleTimeString()}</p>
+                        <p className="text-xs text-gray-700">{new Date(startTime as string).toLocaleTimeString()}</p>
                     </div>
                     <div>
                         <p className="font-semibold text-gray-800">End Location</p>
                         <p className="font-semibold">{endLocation}</p>
-                        <p className="text-xs text-gray-700">{new Date(endTime).toLocaleTimeString()}</p>
+                        <p className="text-xs text-gray-700">{new Date(endTime as string).toLocaleTimeString()}</p>
                     </div>
                 </div>
             </div>
