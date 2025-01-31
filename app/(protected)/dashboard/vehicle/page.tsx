@@ -27,7 +27,7 @@ export default async function AdminPage() {
 
     return (
       <div className="flex flex-col gap-5">
-        <TransactionsList vehicles={vehicles} total={total} pageIndex={pageIndex} pageSize={pageSize} />
+        <TransactionsList />
       </div>
     );
   } catch (error) {
